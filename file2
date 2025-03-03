@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-class Employee {
+class Staff {
     int id;
     String name;
     int age;
@@ -10,7 +10,7 @@ class Employee {
     int yoj; // Year of Joining
     double salary;
 
-    public Employee(int id, String name, int age, String gender, int yoj, double salary) {
+    public Staff(int id, String name, int age, String gender, int yoj, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -19,12 +19,13 @@ class Employee {
         this.salary = salary;
     }
 
+    // Override equals() and hashCode() to compare based on id and yoj
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Employee employee = (Employee) obj;
-        return id == employee.id && yoj == employee.yoj;
+        Staff staff = (Staff) obj;
+        return id == staff.id && yoj == staff.yoj;
     }
 
     @Override
@@ -34,41 +35,35 @@ class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                ", yoj=" + yoj +
-                ", salary=" + salary +
-                '}';
+        return "Staff{id=" + id + ", name='" + name + "', age=" + age + 
+               ", gender='" + gender + "', yoj=" + yoj + ", salary=" + salary + "}";
     }
 }
 
-public class EmployeeStreamDemo {
+public class StaffStreamDemo {
     public static void main(String[] args) {
-        List<Employee> employees = Arrays.asList(
-                new Employee(101, "Alice", 30, "Female", 2018, 50000),
-                new Employee(102, "Bob", 35, "Male", 2021, 60000),
-                new Employee(103, "Charlie", 28, "Male", 2019, 55000),
-                new Employee(104, "David", 40, "Male", 2022, 65000),
-                new Employee(105, "Eve", 25, "Female", 2023, 70000),
-                new Employee(102, "Bob", 35, "Male", 2021, 60000), // Duplicate
-                new Employee(104, "David", 40, "Male", 2022, 65000), // Duplicate
-                new Employee(105, "Eve", 25, "Female", 2023, 70000)  // Duplicate
+        List<Staff> staffList = Arrays.asList(
+                new Staff(101, "Alice", 30, "Female", 2018, 50000),
+                new Staff(102, "Bob", 35, "Male", 2021, 60000),
+                new Staff(103, "Charlie", 28, "Male", 2019, 55000),
+                new Staff(104, "David", 40, "Male", 2022, 65000),
+                new Staff(105, "Eve", 25, "Female", 2023, 70000),
+                new Staff(102, "Bob", 35, "Male", 2021, 60000), // Duplicate
+                new Staff(104, "David", 40, "Male", 2022, 65000), // Duplicate
+                new Staff(105, "Eve", 25, "Female", 2023, 70000)  // Duplicate
         );
 
-        // 1. Count occurrences of each employee
-        System.out.println("\nEmployee count (including duplicates):");
-        Map<Employee, Long> employeeCount = employees.stream()
+        // 1. Count occurrences of each staff member
+        System.out.println("\nStaff count (including duplicates):");
+        Map<Staff, Long> staffCount = staffList.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        employeeCount.forEach((employee, count) -> 
-            System.out.println(employee + " -> Count: " + count));
+        staffCount.forEach((staff, count) -> 
+            System.out.println(staff + " -> Count: " + count));
 
-        // 2. Print only distinct employees
-        System.out.println("\nDistinct Employees:");
-        employees.stream()
+        // 2. Print only distinct staff members
+        System.out.println("\nDistinct Staff Members:");
+        staffList.stream()
                 .distinct() // Removes duplicates based on equals() and hashCode()
                 .forEach(System.out::println);
     }

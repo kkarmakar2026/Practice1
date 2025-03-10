@@ -45,9 +45,11 @@
 
     <!-- Products Section -->
     <div class="products">
-        <div class="product"><img src = "images/hover1.jfif"></div>
-        <div class="product"><img src = "images/hover2.jfif"></div>
-        <div class="product"><img src = "images/hover3.jfif"></div>
+        <div class="product"><p><h4>Experience Luxury and Comfort in the Skies </h4>Experience the ultimate in air travel with Fly Sky Airlines, where luxury meets efficiency. Whether you're flying for business or leisure, our state-of-the-art fleet ensures a smooth and comfortable journey to your destination. With spacious seating, gourmet dining, and top-tier in-flight entertainment, we redefine the way you experience the skies. Book your ticket today and let us take you to new heights with world-class service and unmatched convenience.</p> 
+        </div>
+        <div class="product"><p><h4>Safety, Reliability, and Seamless Travel</h4>At Fly Sky Airlines, safety and punctuality are our top priorities. Our expert pilots and dedicated crew are committed to providing a seamless flying experience, ensuring you reach your destination safely and on time. With an extensive network of domestic and international routes, we make traveling effortless. From hassle-free check-ins to priority boarding, we value your time and strive to make every trip a stress-free experience.  
+        </p></div>
+        <div class="product"><p><h4>Exclusive Rewards and Unmatched Benefits</h4>Join our Fly Sky Rewards Program and unlock exclusive perks, including lounge access, priority upgrades, and travel discounts. Whether you're a frequent flyer or planning your dream vacation, our commitment to customer satisfaction makes every journey a memorable one. Choose SkyWings Airlines and let your travel aspirations take flight with the best in the industry. Book now and fly beyond limits!</p></div>
     </div>
 
     <!-- Form Section -->
@@ -56,6 +58,7 @@
         <form action="RegisterServlet" method="post">
             Name: <input type="text" name="name" required> <br><br>
             Email: <input type="email" name="email" required> <br><br>
+              Password: <input type="password" name="password" required> <br><br>
             Gender:
             <input type="radio" name="gender" value="Male"> Male
             <input type="radio" name="gender" value="Female"> Female <br><br>
@@ -66,6 +69,7 @@
                 <option>SEO</option>
             </select> <br><br>
             <input type="checkbox" name="subscribe" value="yes"> Subscribe to newsletter <br><br>
+          
             <button type="submit">Submit</button>
         </form>
     </div>

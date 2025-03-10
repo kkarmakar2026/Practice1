@@ -1,1 +1,13 @@
+CREATE DATABASE company_db;
+USE company_db;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(50) UNIQUE,
+    gender VARCHAR(10),
+    service VARCHAR(50),
+    subscribe VARCHAR(10),
+    password VARCHAR(50)  -- Store hashed passwords in a real application
+);
 
